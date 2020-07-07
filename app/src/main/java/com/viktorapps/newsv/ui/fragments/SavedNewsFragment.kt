@@ -38,7 +38,7 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
             ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
-        ){
+        ) {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
@@ -52,7 +52,7 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
                 val article = newsAdapter.differ.currentList[position]
                 viewModel.deleteArticle(article)
                 Snackbar.make(view, "Successfully deleted article", Snackbar.LENGTH_LONG).apply {
-                    setAction("Undo"){
+                    setAction("Undo") {
                         viewModel.saveArticle(article)
                     }
                     show()
